@@ -10,8 +10,12 @@ public class Programa {
         Semaphore sem2 = new Semaphore(1);
         Semaphore sem3 = new Semaphore(1);
         Semaphore sem4 = new Semaphore(1);
-        int vert[] = new int[1];
-        Thread0 t0 = new Thread0(4, vert, sem0, sem1, sem2, sem3, sem4);
+        Semaphore mutexCont = new Semaphore(1);
+        Semaphore semBarreira = new Semaphore(0);
+
+        int cont[] = new int[1];
+        cont[0] = 0;
+        Thread0 t0 = new Thread0(4,cont, sem0, sem1, sem2, sem3, sem4,mutexCont,semBarreira);
                
 
         t0.start();

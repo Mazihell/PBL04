@@ -1,4 +1,5 @@
 package Descontos;
+
 import java.util.List;
 import java.util.concurrent.Semaphore;
 
@@ -15,10 +16,13 @@ public class Thread1 extends Thread {
     private Semaphore sem2;
     private Semaphore sem3;
     private Semaphore sem4;
+    private Semaphore mutexCont;
+    private Semaphore semBarreira;
+    private int[] cont;
 
-
-    public Thread1(List<Funcionarios> parte1,List<Funcionarios> parte2,List<Funcionarios> parte3,
-    List<Funcionarios> parte4, Semaphore sem1,Semaphore sem2,Semaphore sem3, Semaphore sem4) {
+    public Thread1(int[] cont, List<Funcionarios> parte1, List<Funcionarios> parte2, List<Funcionarios> parte3,
+            List<Funcionarios> parte4, Semaphore sem1, Semaphore sem2, Semaphore sem3, Semaphore sem4,
+            Semaphore mutexCont, Semaphore semBarreira) {
 
         this.parte1 = parte1;
         this.parte2 = parte2;
@@ -28,21 +32,38 @@ public class Thread1 extends Thread {
         this.sem2 = sem2;
         this.sem3 = sem3;
         this.sem4 = sem4;
+        this.mutexCont = mutexCont;
+        this.semBarreira = semBarreira;
+        this.cont = cont;
 
     }
 
     @Override
     public void run() {
         try {
+
             sem1.acquire();
             calculoIR(parte1);
-
+            sem1.release();
+            sem2.acquire();
+            calculoIR(parte2);
             sem2.release();
-            calculoIR(parte2);       
+            sem3.acquire();
             calculoIR(parte3);
+            sem3.release();
+            sem4.acquire();
             calculoIR(parte4);
+            sem4.release();
 
-           
+            mutexCont.acquire();
+            cont[0]++;
+            if (cont[0] == 4) {
+                semBarreira.release();
+            }
+            mutexCont.release();
+
+            semBarreira.acquire();
+            semBarreira.release();
 
         } catch (Exception e) {
             e.printStackTrace();

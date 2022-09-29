@@ -3,28 +3,27 @@ package Funcionarios;
 public class Funcionarios {
     private int codigo;
     private double salarioBruto;
-    private double salarioLiquido;
     private double descontoIR;
     private double descontoINSS;
     private double descontoPrevidencia;
     private double descontoPlanoSaude;
     private double totalDescontos;
+    private double salarioLiquido;
 
-    public Funcionarios(){
+    public Funcionarios() {
 
     }
-   
 
     public Funcionarios(int codigo, double salarioBruto, double salarioLiquido, double descontoIR, double descontoINSS,
             double descontoPrevidencia, double descontoPlanoSaude, double totalDescontos) {
         this.codigo = codigo;
         this.salarioBruto = salarioBruto;
-        this.salarioLiquido = salarioLiquido;
         this.descontoIR = descontoIR;
         this.descontoINSS = descontoINSS;
         this.descontoPrevidencia = descontoPrevidencia;
         this.descontoPlanoSaude = descontoPlanoSaude;
         this.totalDescontos = totalDescontos;
+        this.salarioLiquido = salarioLiquido;
     }
 
     public int getCodigo() {
@@ -44,11 +43,7 @@ public class Funcionarios {
     }
 
     public double getSalarioLiquido() {
-        return salarioLiquido = getSalarioBruto() - getTotalDescontos();
-    }
-
-    public void setSalarioLiquido(double salarioLiquido) {
-        this.salarioLiquido = salarioLiquido;
+        return salarioLiquido;
     }
 
     public double getDescontoIR() {
@@ -85,7 +80,13 @@ public class Funcionarios {
 
     public double getTotalDescontos() {
         totalDescontos = getDescontoINSS() + getDescontoIR() + getDescontoPlanoSaude() + getDescontoPrevidencia();
+        descontoFolha(totalDescontos);
         return totalDescontos;
     }
-   
+
+    public void descontoFolha(double descontos) {
+        this.salarioLiquido = getSalarioBruto() - getTotalDescontos();
+
+    }
+
 }

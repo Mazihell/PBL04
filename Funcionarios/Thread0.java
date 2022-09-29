@@ -22,61 +22,57 @@ public class Thread0 extends Thread {
     private Semaphore sem2;
     private Semaphore sem3;
     private Semaphore sem4;
+    private Semaphore mutexCont;
+    private Semaphore semBarreira;
     private Thread1 th1;
     private Thread2 th2;
     private Thread3 th3;
     private Thread4 th4;
-    private int vert[];
+    private int cont[];
 
     private int n;
     private Random geraAleatorio = new Random();
 
-    public Thread0(int n, int vert[], Semaphore sem0, Semaphore sem1, Semaphore sem2, Semaphore sem3, Semaphore sem4) {
+    public Thread0(int n, int cont[], Semaphore sem0, Semaphore sem1, Semaphore sem2, Semaphore sem3,
+            Semaphore sem4, Semaphore mutexCont, Semaphore semBarreira) {
         this.n = n * 4;
-        this.vert = vert;
         this.sem0 = sem0;
         this.sem1 = sem1;
         this.sem2 = sem2;
         this.sem3 = sem3;
         this.sem4 = sem4;
+        this.mutexCont = mutexCont;
+        this.semBarreira = semBarreira;
         this.funcionarios = new ArrayList<Funcionarios>(this.n);
         this.parte1 = new ArrayList<Funcionarios>();
         this.parte2 = new ArrayList<Funcionarios>();
         this.parte3 = new ArrayList<Funcionarios>();
         this.parte4 = new ArrayList<Funcionarios>();
-        
+        this.cont = cont;
 
     }
 
     @Override
     public void run() {
         try {
-            
-            sem0.acquire();
-            sem1.acquire();
-            sem2.acquire();
-            sem3.acquire();
-            sem4.acquire();
-        
             // Cria uma lista de n funcionários, onde n é um múltiplo de 4
             criaListaFuncionarios();
             // Divide a lista em quatro partes de igual tamanho, denominadas parte 1, parte
             // 2, parte 3 e parte 4.
             divideLista(funcionarios);
- 
-            th1 = new Thread1(parte1,parte2,parte3,parte4,sem1,sem2,sem3,sem4);
-            th2 = new Thread2(parte1,parte2,parte3,parte4,sem1,sem2,sem3,sem4);
-            th3 = new Thread3(parte1,parte2,parte3,parte4,sem1,sem2,sem3,sem4);
-            th4 = new Thread4(parte1,parte2,parte3,parte4,sem1,sem2,sem3,sem4);
+
+
+            th1 = new Thread1(cont, parte1, parte2, parte3, parte4, sem1, sem2, sem3, sem4, mutexCont, semBarreira);
+            th2 = new Thread2(cont, parte1, parte2, parte3, parte4, sem1, sem2, sem3, sem4, mutexCont, semBarreira);
+            th3 = new Thread3(cont, parte1, parte2, parte3, parte4, sem1, sem2, sem3, sem4, mutexCont, semBarreira);
+            th4 = new Thread4(cont, parte1, parte2, parte3, parte4, sem1, sem2, sem3, sem4, mutexCont, semBarreira);
             th1.start();
             th2.start();
             th3.start();
             th4.start();
 
-            sem1.release();
 
             imprimeLista();
-        
 
         } catch (
 
