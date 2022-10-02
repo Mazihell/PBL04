@@ -1,0 +1,36 @@
+Codigo: 1470
+Salario Bruto: 3560.61
+Desconto IR: 712.12
+Desconto INSS: 0.0
+Desconto Plano: 0.0
+Desconto Previdencia: 0.0
+Total de Descontos: 712.12
+Salario Liquido: 2848.4900000000002
+
+Codigo: 861
+Salario Bruto: 3875.67
+Desconto IR: 775.13
+Desconto INSS: 0.0
+Desconto Plano: 0.0
+Desconto Previdencia: 0.0
+Total de Descontos: 775.13
+Salario Liquido: 3100.54
+
+Codigo: 976
+Salario Bruto: 2453.12
+Desconto IR: 490.62
+Desconto INSS: 0.0
+Desconto Plano: 0.0
+Desconto Previdencia: 0.0
+Total de Descontos: 490.62
+Salario Liquido: 1962.5
+
+Codigo: 4164
+Salario Bruto: 4800.32
+Desconto IR: 960.06
+Desconto INSS: 0.0
+Desconto Plano: 0.0
+Desconto Previdencia: 0.0
+Total de Descontos: 960.06
+Salario Liquido: 3840.2599999999998
+

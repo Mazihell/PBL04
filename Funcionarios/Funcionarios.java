@@ -43,7 +43,7 @@ public class Funcionarios {
     }
 
     public double getSalarioLiquido() {
-        return salarioLiquido;
+        return salarioLiquido = getSalarioBruto() - getTotalDescontos();
     }
 
     public double getDescontoIR() {
@@ -79,14 +79,8 @@ public class Funcionarios {
     }
 
     public double getTotalDescontos() {
-        totalDescontos = getDescontoINSS() + getDescontoIR() + getDescontoPlanoSaude() + getDescontoPrevidencia();
-        descontoFolha(totalDescontos);
+        totalDescontos = getDescontoIR() + getDescontoINSS() + getDescontoPrevidencia() + getDescontoPlanoSaude();
         return totalDescontos;
-    }
-
-    public void descontoFolha(double descontos) {
-        this.salarioLiquido = getSalarioBruto() - getTotalDescontos();
-
     }
 
 }

@@ -1,14 +1,16 @@
 package Funcionarios;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.Semaphore;
-
 import Descontos.Thread1;
 import Descontos.Thread2;
 import Descontos.Thread3;
 import Descontos.Thread4;
+import Data.GeraArquivo;
 
 public class Thread0 extends Thread {
 
@@ -29,7 +31,7 @@ public class Thread0 extends Thread {
     private Thread3 th3;
     private Thread4 th4;
     private int cont[];
-
+    public GeraArquivo arquivos;
     private int n;
     private Random geraAleatorio = new Random();
 
@@ -55,12 +57,14 @@ public class Thread0 extends Thread {
     @Override
     public void run() {
         try {
+
+            sem0.acquire();
             // Cria uma lista de n funcionários, onde n é um múltiplo de 4
             criaListaFuncionarios();
             // Divide a lista em quatro partes de igual tamanho, denominadas parte 1, parte
             // 2, parte 3 e parte 4.
             divideLista(funcionarios);
-
+            sem0.release();
 
             th1 = new Thread1(cont, parte1, parte2, parte3, parte4, sem1, sem2, sem3, sem4, mutexCont, semBarreira);
             th2 = new Thread2(cont, parte1, parte2, parte3, parte4, sem1, sem2, sem3, sem4, mutexCont, semBarreira);
@@ -71,8 +75,15 @@ public class Thread0 extends Thread {
             th3.start();
             th4.start();
 
-
-            imprimeLista();
+            System.out.println("-----------------Parte 01 ------------- \n");
+            imprimeLista(parte1);
+            System.out.println("-----------------Parte 02 ------------- \n");
+            imprimeLista(parte2);
+            System.out.println("-----------------Parte 03 ------------- \n");
+            imprimeLista(parte3);
+            System.out.println("-----------------Parte 04 ------------- \n");
+            imprimeLista(parte4);          
+            
 
         } catch (
 
@@ -108,8 +119,8 @@ public class Thread0 extends Thread {
         }
     }
 
-    public void imprimeLista() {
-        for (Funcionarios func : parte1) {
+    public void imprimeLista(List<Funcionarios> partes) {
+        for (Funcionarios func : partes) {
             System.out.println("Codigo: " + func.getCodigo() + "\n" +
                     "Salario Bruto: " + func.getSalarioBruto() + "\n" +
                     "Desconto IR: " + func.getDescontoIR() + "\n" +

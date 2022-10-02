@@ -1,0 +1,36 @@
+Codigo: 236
+Salario Bruto: 4118.96
+Desconto IR: 0.0
+Desconto INSS: 0.0
+Desconto Plano: 0.0
+Desconto Previdencia: 164.76
+Total de Descontos: 164.76
+Salario Liquido: 3954.2
+
+Codigo: 1248
+Salario Bruto: 4496.33
+Desconto IR: 0.0
+Desconto INSS: 0.0
+Desconto Plano: 0.0
+Desconto Previdencia: 179.85
+Total de Descontos: 179.85
+Salario Liquido: 4316.48
+
+Codigo: 287
+Salario Bruto: 1244.45
+Desconto IR: 0.0
+Desconto INSS: 0.0
+Desconto Plano: 0.0
+Desconto Previdencia: 49.78
+Total de Descontos: 49.78
+Salario Liquido: 1194.67
+
+Codigo: 3047
+Salario Bruto: 1203.31
+Desconto IR: 0.0
+Desconto INSS: 0.0
+Desconto Plano: 0.0
+Desconto Previdencia: 48.13
+Total de Descontos: 48.13
+Salario Liquido: 1155.1799999999998
+

@@ -3,6 +3,7 @@ package Descontos;
 import java.util.List;
 import java.util.concurrent.Semaphore;
 
+import Data.GeraArquivo;
 import Funcionarios.Funcionarios;
 
 public class Thread4 extends Thread {
@@ -18,6 +19,8 @@ public class Thread4 extends Thread {
     private Semaphore mutexCont;
     private Semaphore semBarreira;
     private int[] cont;
+    private String caminho;
+    private GeraArquivo geraArquivo;
 
     public Thread4(int[] cont, List<Funcionarios> parte1, List<Funcionarios> parte2, List<Funcionarios> parte3,
             List<Funcionarios> parte4,
@@ -34,6 +37,8 @@ public class Thread4 extends Thread {
         this.parte3 = parte3;
         this.parte4 = parte4;
         this.cont = cont;
+        caminho = "Data/parte4.txt";
+        this.geraArquivo = new GeraArquivo();
     }
 
     @Override
@@ -61,6 +66,7 @@ public class Thread4 extends Thread {
             mutexCont.release();
 
             semBarreira.acquire();
+            geraArquivo.salvaArquivo(parte4, caminho);
             semBarreira.release();
 
         } catch (Exception e) {

@@ -15,8 +15,7 @@ public class Programa {
 
         int cont[] = new int[1];
         cont[0] = 0;
-        Thread0 t0 = new Thread0(4,cont, sem0, sem1, sem2, sem3, sem4,mutexCont,semBarreira);
-               
+        Thread0 t0 = new Thread0(4, cont, sem0, sem1, sem2, sem3, sem4, mutexCont, semBarreira);
 
         t0.start();
 
