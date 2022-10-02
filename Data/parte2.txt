@@ -1,36 +1,36 @@
-Codigo: 4227
-Salario Bruto: 2374.64
+Codigo: 3179
+Salario Bruto: 2213.64
 Desconto IR: 0.0
-Desconto INSS: 189.97
+Desconto INSS: 177.09
 Desconto Plano: 0.0
 Desconto Previdencia: 0.0
-Total de Descontos: 189.97
-Salario Liquido: 2184.67
+Total de Descontos: 177.09
+Salario Liquido: 2036.55
 
-Codigo: 927
-Salario Bruto: 1105.63
+Codigo: 4419
+Salario Bruto: 3361.82
 Desconto IR: 0.0
-Desconto INSS: 88.45
+Desconto INSS: 268.95
 Desconto Plano: 0.0
 Desconto Previdencia: 0.0
-Total de Descontos: 88.45
-Salario Liquido: 1017.1800000000001
+Total de Descontos: 268.95
+Salario Liquido: 3092.8700000000003
 
-Codigo: 1240
-Salario Bruto: 2425.87
+Codigo: 355
+Salario Bruto: 3847.27
 Desconto IR: 0.0
-Desconto INSS: 194.07
+Desconto INSS: 307.78
 Desconto Plano: 0.0
 Desconto Previdencia: 0.0
-Total de Descontos: 194.07
-Salario Liquido: 2231.7999999999997
+Total de Descontos: 307.78
+Salario Liquido: 3539.49
 
-Codigo: 4310
-Salario Bruto: 2821.08
+Codigo: 1279
+Salario Bruto: 4752.79
 Desconto IR: 0.0
-Desconto INSS: 225.69
+Desconto INSS: 380.22
 Desconto Plano: 0.0
 Desconto Previdencia: 0.0
-Total de Descontos: 225.69
-Salario Liquido: 2595.39
+Total de Descontos: 380.22
+Salario Liquido: 4372.57
 

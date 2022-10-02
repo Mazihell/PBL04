@@ -73,17 +73,7 @@ public class Thread0 extends Thread {
             th1.start();
             th2.start();
             th3.start();
-            th4.start();
-
-            System.out.println("-----------------Parte 01 ------------- \n");
-            imprimeLista(parte1);
-            System.out.println("-----------------Parte 02 ------------- \n");
-            imprimeLista(parte2);
-            System.out.println("-----------------Parte 03 ------------- \n");
-            imprimeLista(parte3);
-            System.out.println("-----------------Parte 04 ------------- \n");
-            imprimeLista(parte4);          
-            
+            th4.start();            
 
         } catch (
 
